@@ -1,5 +1,6 @@
 ﻿namespace Module2_Practice1_HW1
 {
+    // Class that processes orders made in Cart class
     public class Order
     {
         public Order(int id, List<Product>? orderedProducts)

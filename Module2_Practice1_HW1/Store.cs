@@ -1,5 +1,6 @@
 ﻿namespace Module2_Practice1_HW1
 {
+    // Main class that operates another classes (mainly, Cart)
     public class Store
     {
         private Catalog _catalog;

@@ -1,5 +1,6 @@
 ﻿namespace Module2_Practice1_HW1
 {
+    // class that runs in Program class and encapsulates all the work with Store class
     public class Starter
     {
         public static void Run()

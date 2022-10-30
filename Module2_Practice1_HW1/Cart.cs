@@ -1,5 +1,6 @@
 ﻿namespace Module2_Practice1_HW1
 {
+    // Class that creates/retrieves orders
     public class Cart
     {
         private static int _orderId = 0;

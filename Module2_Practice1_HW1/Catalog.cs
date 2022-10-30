@@ -1,6 +1,6 @@
 ﻿namespace Module2_Practice1_HW1
 {
-    // Singleton class
+    // Singleton class that contains all the products that Internet Store has
     public class Catalog
     {
         private static Catalog? _catalog = null;

@@ -1,5 +1,6 @@
 ﻿namespace Module2_Practice1_HW1
 {
+    // Core class
     public class Product
     {
         public Product(int number, string name, decimal price)
