@@ -1,10 +1,10 @@
 ﻿namespace Module2_Practice1_HW1
 {
-    internal class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("");
+            Starter.Run();
         }
     }
 }
