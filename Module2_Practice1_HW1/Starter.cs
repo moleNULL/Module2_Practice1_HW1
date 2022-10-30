@@ -59,8 +59,11 @@
         {
             while (true)
             {
-                Console.Write("\nChoose products (for example: 1 2 5 6 9): ");
+                Console.Write("\nChoose 1-10 products (for example: 1 2 5 6 9): ");
                 string? userChoice = Console.ReadLine();
+
+                // variable to print the numbers of products which won't be stored in this order
+                string? overflowChoices = null;
 
                 if (userChoice == null)
                 {
@@ -75,7 +78,15 @@
                     {
                         if (num >= 1 && num <= 15)
                         {
-                            productNumbers.Add(num);
+                            // user cannot chose over 10 products
+                            if (productNumbers.Count < 10)
+                            {
+                                productNumbers.Add(num);
+                            }
+                            else
+                            {
+                                overflowChoices += number + " ";
+                            }
                         }
                     }
                 }
@@ -86,6 +97,12 @@
                         "Products Id must be in range [1..15]");
 
                     continue;
+                }
+
+                if (overflowChoices != null)
+                {
+                    Console.WriteLine("Warning! These products will not be " +
+                        "added to your cart: " + overflowChoices);
                 }
 
                 break;
