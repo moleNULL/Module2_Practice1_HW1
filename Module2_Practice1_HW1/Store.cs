@@ -5,12 +5,10 @@
     {
         private Catalog _catalog;
         private Cart _cart;
-        private List<Order> _orders;
         public Store()
         {
             _catalog = Catalog.Instance;
             _cart = new Cart();
-            _orders = new List<Order>();
         }
 
         // Print welcome message for user
