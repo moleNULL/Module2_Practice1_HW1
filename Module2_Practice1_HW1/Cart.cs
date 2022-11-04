@@ -4,17 +4,17 @@
     public class Cart
     {
         private static int _orderId = 0;
-        private List<Order> _orders;
-        private List<Product>? _products;
+        private ArrayOrder _orders;
+        private ArrayProduct? _products;
 
         public Cart()
         {
-            _orders = new List<Order>();
-            _products = new List<Product>();
+            _orders = new ArrayOrder();
+            _products = new ArrayProduct();
         }
 
         // Temporarily hold products before saving
-        public void HoldProducts(List<Product> products)
+        public void HoldProducts(ArrayProduct products)
         {
             _products = products;
         }
@@ -30,7 +30,10 @@
         {
             if (_products == null)
             {
-                throw new Exception("Exception! Attempt to save null List<Product>");
+                Console.WriteLine("Fatal error! Attempt to save null to ArrayProduct (Product[])");
+                Console.ReadKey();
+
+                Environment.Exit(0);
             }
 
             ++_orderId;
@@ -47,7 +50,7 @@
                 return null;
             }
 
-            return GetOrderPrintInfo(_orders[^1]);
+            return GetOrderPrintInfo(_orders.GetLastElement());
         }
 
         // Get a unique OrderId and list of products of the order with a particular OrderId
@@ -55,7 +58,7 @@
         {
             Order? currentOrder = null;
 
-            foreach (var order in _orders)
+            foreach (var order in _orders.ToArray())
             {
                 if (order.OrderId == id)
                 {
@@ -81,7 +84,7 @@
 
             string orderInfo = $"\n  Currently you have {_orders.Count} orders";
 
-            foreach (var order in _orders)
+            foreach (var order in _orders.ToArray())
             {
                 orderInfo += GetOrderPrintInfo(order);
             }
@@ -96,7 +99,7 @@
             orderInfo += new string('.', 100);
             orderInfo += $"\n\t\t\t\t\tOrder #{order.OrderId}. List of products:\n\n";
 
-            foreach (Product product in order.OrderedProducts!)
+            foreach (Product product in order.OrderedProducts.ToArray())
             {
                 orderInfo += $"\t{product.Number}. {product.Name} ({product.Price} UAH)\n";
             }
@@ -109,11 +112,11 @@
         }
 
         // Count total price of the chosen products
-        private decimal TotalPrice(List<Product> chosenProducts)
+        private decimal TotalPrice(ArrayProduct chosenProducts)
         {
             decimal price = 0;
 
-            foreach (Product product in chosenProducts)
+            foreach (Product product in chosenProducts.ToArray())
             {
                 price += product.Price;
             }

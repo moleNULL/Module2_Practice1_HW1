@@ -29,7 +29,7 @@
         }
 
         // Temporarily hold products before saving (Cart class)
-        public void HoldProducts(List<int> productNumbers)
+        public void HoldProducts(int[] productNumbers)
         {
             var products = GenerateProductObjects(productNumbers);
             _cart.HoldProducts(products);
@@ -86,10 +86,10 @@
             Console.WriteLine(orderInfo);
         }
 
-        // Generate List<Product> from user's List<int>: int -> Product
-        private List<Product> GenerateProductObjects(List<int> productNumbers)
+        // Generate ArrayProduct (Product[]) from user's ArrayInt (int[]): int[] -> ArrayProduct
+        private ArrayProduct GenerateProductObjects(int[] productNumbers)
         {
-            List<Product> products = new List<Product>();
+            ArrayProduct products = new ArrayProduct();
 
             foreach (Product product in _catalog.Products)
             {

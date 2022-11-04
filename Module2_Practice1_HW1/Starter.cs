@@ -11,8 +11,7 @@
 
             while (true)
             {
-                List<int> productNumbers = new List<int>();
-                GetProductNumbers(productNumbers); // Get user's input
+                int[] productNumbers = GetProductNumbers(); // Get user's input
 
                 store.HoldProducts(productNumbers); // Temporarily hold products which user chose
 
@@ -49,14 +48,13 @@
                     continue;
                 }
             }
-
-            Console.Write("\nPress any key to continue . . .");
-            Console.ReadKey();
         }
 
-        // Get List<int> out of numbers that user input
-        private static void GetProductNumbers(List<int> productNumbers)
+        // Get int[] out of numbers that user input
+        private static int[] GetProductNumbers()
         {
+            ArrayInt productNumbers = new ArrayInt();
+
             while (true)
             {
                 Console.Write("\nChoose 1-10 products (for example: 1 2 5 6 9): ");
@@ -107,6 +105,8 @@
 
                 break;
             }
+
+            return productNumbers.ToArray();
         }
     }
 }

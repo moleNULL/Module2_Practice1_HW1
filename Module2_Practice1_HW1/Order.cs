@@ -3,7 +3,7 @@
     // Class that processes orders made in Cart class
     public class Order
     {
-        public Order(int id, List<Product>? orderedProducts)
+        public Order(int id, ArrayProduct orderedProducts)
         {
             OrderId = id;
             OrderedProducts = orderedProducts;
@@ -11,6 +11,6 @@
 
         // unique Id that Cart class generates
         public int OrderId { get; set; }
-        public List<Product>? OrderedProducts { get; set; }
+        public ArrayProduct OrderedProducts { get; set; }
     }
 }

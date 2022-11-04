@@ -20,6 +20,9 @@ namespace Module2_Practice1_HW1
         public static void Main(string[] args)
         {
             Starter.Run();
+
+            Console.Write("\nPress any key to continue . . .");
+            Console.ReadKey();
         }
     }
 }
